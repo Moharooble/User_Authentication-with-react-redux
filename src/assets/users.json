@@ -1,0 +1,33 @@
+{
+    "users": [
+      {
+        "name": "farax Abdullahi mohamud",
+        "photo": "./images/user1.jpg",
+        "age": "33",
+        "email": "farax@example.com",
+        "password": "777"  
+      },
+      {
+        "name": "Moha abdi",
+        "photo": "./images/user1.jpg",
+        "age": "24",
+        "email": "rooble1@gmail.com",
+        "password": "732"  
+      },
+      {
+        "name": "burhaan Yousuf",
+        "photo": "./images/user1.jpg",
+        "age": "31",
+        "email": "burhaan77@gmail.com",
+        "password": "777"  
+      },
+      {
+        "name": "Mohamud Saleban Farax",
+        "photo": "./images/user1.jpg",
+        "age": "31",
+        "email": "mohamud1@gmail.com",
+        "password": "777"  
+      }
+    ]
+  }
+  
