@@ -3,15 +3,22 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProfileOverlay from './ProfileOverlay';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { handleProfile } from '../features/profile/profileSlice';
 
 const Header = () => {
-    const user = useSelector((state) => state.auth.user)
-    const [isProfileOpen, setProfileOpen] = useState(false);
+    const user = useSelector((state) => state.auth.user);
+    const {isOpen} = useSelector((state) => state.profile)
+    const dispatch = useDispatch();
+    const handleProfileOpen = () => {
+        dispatch(handleProfile())
+    }
 
 
-    const toggleProfile = () => {
-        setProfileOpen(!isProfileOpen);
-    };
+
+    // const toggleProfile = () => {
+    //     setProfileOpen(!isProfileOpen);
+    // };
 
     if(!user) return
     return (
@@ -23,10 +30,9 @@ const Header = () => {
                 <Link to="/contact">Contact</Link>
                 </div>
                 {/* <button onClick={toggleProfile}>Profile</button> */}
-                <img onClick={toggleProfile} className='profile_img' src={user.photo} alt=""  id="user_profile" srcSet="" />
+                <img  onClick={handleProfileOpen} className='profile_img' src={user.photo} alt=""  id="user_profile" srcSet="" />
 
             </nav>
-            {isProfileOpen && <ProfileOverlay onClose={toggleProfile} setProfileOpen={setProfileOpen}/>}
         </header>
     );
 };

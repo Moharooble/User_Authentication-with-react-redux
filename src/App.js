@@ -7,9 +7,10 @@ import Header from './components/Header';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Home from './components/Home';
-import './App.css'; // Add this line
+import './style/App.css'; // Add this line
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProfileOverlay from './components/ProfileOverlay';
 
 function App() {
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -17,8 +18,10 @@ function App() {
     return (
         <Provider store={store}>
             <Router>
-            <ToastContainer />
+                <ToastContainer />
                 <Header />
+                <ProfileOverlay/>
+
                 <div className="App">
                     <Routes>
                         <Route path="/" element={isLoggedIn ? <Home />  : <Login /> } />

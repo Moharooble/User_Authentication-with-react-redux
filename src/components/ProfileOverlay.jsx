@@ -2,17 +2,21 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../features/auth/authSlice';
-import './ProfileOverlay.css'; // Create a CSS file for styling
+import '../style/ProfileOverlay.css'; // Create a CSS file for styling
+import { handleProfile } from '../features/profile/profileSlice';
 
-const ProfileOverlay = ({ onClose,setProfileOpen}) => {
+const ProfileOverlay = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
-    console.log(user)
+    const {isOpen} = useSelector((state) => state.profile)
+    
 
     const handleLogout = () => {
         dispatch(logout());
-        setProfileOpen(false)
+        dispatch(handleProfile())
     }
+
+    if(!isOpen) return
 
     return (
         <div className="profile-overlay">
