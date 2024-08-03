@@ -1,8 +1,8 @@
 /* src/components/ProfileOverlay.css */
 .profile-overlay {
     position: fixed;
-    top: 25%;
-    left: 93%;
+    top: 170px;
+    right: -50px;
     transform: translate(-50%, -50%);
     background: white;
     color: black;
